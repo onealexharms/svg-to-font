@@ -5,6 +5,7 @@ class Glyph:
     def __init__(self, name):
         self.name = name 
         self.svg_file = f'font/glyphs/{name}.svg'
+        self.codepoint = 65
 
 class FontMaker:
     def __init__(self):
@@ -33,6 +34,11 @@ class Tests(unittest.TestCase):
         for glyph in FontMaker().glyphs:
             with open(glyph.svg_file) as f:
                 pass
+
+    def test_each_glyph_has_a_unicode_codepoint(self):
+        glyphs = FontMaker().glyphs
+        for glyph in glyphs:
+            self.assertTrue(glyph.codepoint>0)
 
 if __name__=='__main__':
     unittest.main()
