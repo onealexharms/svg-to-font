@@ -1,12 +1,12 @@
 import os
 
 def main():
-    letters = [
+    glyphs = [
         file.removesuffix('.svg')
-        for file in os.listdir('font/letters')
+        for file in os.listdir('font/glyphs')
         if file.endswith('.svg')
     ]
-    print(letters)
+    print(glyphs)
 
 if __name__=='__main__':
-   main() 
+   main()
